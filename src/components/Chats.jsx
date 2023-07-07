@@ -23,8 +23,12 @@ const Chats = () => {
         currentUser.uid && getChats();
 
     }, [currentUser.uid]);
+
     const handleSelect = (user) => {
-        dispatch({ type: "CHANGE_USER", payload: user })
+        return () => {
+            console.log(user);
+            dispatch({ type: "CHANGE_USER", payload: user });
+        };
     }
     return (
         <div className='chats'>
